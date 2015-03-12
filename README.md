@@ -42,7 +42,7 @@ This is an example application of integrating `React` and `webpack` with `Rails`
   Rails.application.config.assets.precompile += %w( main.js )
   ```
 
-4. Define a `JAVASCRIPT_FRONTEND_PATH` constant, to set the asset path, in this case, when the env is `production`, we set the constant to `main`, and Rails will look in the paths defined in `assets`. In any other environment, we set the path to `/main`, in `development` this will force `Rails` to serve the asset from the `asset_host` we defined.
+4. Define a `JAVASCRIPT_FRONTEND_PATH` constant, to set the asset path, in this case, when the env is `production`, we set the constant to `app`, and Rails will look in the paths defined in `assets`. In any other environment, we set the path to `/main`, in `development` this will force `Rails` to serve the asset from the `asset_host` we defined.
 
 
   ```ruby
