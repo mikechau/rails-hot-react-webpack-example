@@ -48,13 +48,21 @@ This is an example application of integrating `React` and `webpack` with `Rails`
   ```ruby
   # config/initializers/assets.rb
   if Rails.env.production?
-    JAVASCRIPT_FRONTEND_PATH = 'main'
+    JAVASCRIPT_FRONTEND_PATH = 'app'
   else
     JAVASCRIPT_FRONTEND_PATH = '/main'
   end
   ```
 
-5. For the controller serving the `React` assets, we want to disable the `application layout`.
+5. In production `app` refers to the `app/assets/javascripts/app.js`. Where you can see it requires:
+
+```
+//= require main
+```
+
+Which refers to the `webpack/build/assets/main.js` entry point that webpack will generate. We use this so we can get versioning on the entry point for free (well almost free, have to compile it again via asset pipeline).
+
+6. For the controller serving the `React` assets, we want to disable the `application layout`.
 
   ```ruby
   # app/controllers/static_pages_controller.rb
